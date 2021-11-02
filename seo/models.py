@@ -112,3 +112,18 @@ class Comment(models.Model):
         ordering = ['-username']
     def __str__(self):
         return self.username
+class Tag(models.Model):
+    blog = models.ManyToManyField(Blog)
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200,verbose_name="Url")
+
+    class Meta:
+        verbose_name = 'Tag'
+        verbose_name_plural = 'Tags'
+        ordering = ['-title']
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'slug': self.slug})

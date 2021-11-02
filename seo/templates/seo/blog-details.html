@@ -142,13 +142,9 @@
               <div class="divider"></div>
 
               <div class="tag-clouds">
-                <a href="#" class="tag-cloud-link">Projects</a>
-                <a href="#" class="tag-cloud-link">Design</a>
-                <a href="#" class="tag-cloud-link">Travel</a>
-                <a href="#" class="tag-cloud-link">Brand</a>
-                <a href="#" class="tag-cloud-link">Trending</a>
-                <a href="#" class="tag-cloud-link">Knowledge</a>
-                <a href="#" class="tag-cloud-link">Food</a>
+                {% for i in tag %}
+                <a href="#" class="tag-cloud-link">{{ i.title }}</a>
+                {% endfor %}
               </div>
             </div>
 
